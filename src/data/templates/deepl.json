@@ -1,0 +1,91 @@
+{
+    "toolId": "deepl",
+    "general": {
+        "id": "deepl-general",
+        "name": "DeepL Write Rewrite",
+        "description": "Textüberarbeitung mit Stil-Vorgaben",
+        "template": "Aufgabe: Überarbeite den folgenden Text.\n\nZiel:\n- Zielgruppe: {{targetAudience}}\n- Ton: {{tone}}\n- Stil: {{style}}\n- Länge: {{lengthChange}}\n\nRegeln:\n- MUSS BEHALTEN: {{mustKeep}}\n- MUSS VERMEIDEN: {{noGos}}\n- Sprache: {{language}}\n\nText:\n{{inputText}}\n\n---\n\nBitte liefere:\n1) Überarbeiteten Text\n2) Kurze Erklärung der wichtigsten Änderungen",
+        "slots": [
+            {
+                "name": "Zielgruppe",
+                "key": "targetAudience",
+                "description": "Für wen?",
+                "required": true
+            },
+            {
+                "name": "Ton",
+                "key": "tone",
+                "description": "formal/locker/sachlich",
+                "required": true,
+                "defaultValue": "sachlich"
+            },
+            {
+                "name": "Stil",
+                "key": "style",
+                "description": "Stilrichtung",
+                "required": true,
+                "defaultValue": "klar, prägnant, aktiv"
+            },
+            {
+                "name": "Längenänderung",
+                "key": "lengthChange",
+                "description": "gleich/-20%/+20%",
+                "required": false,
+                "defaultValue": "gleich"
+            },
+            {
+                "name": "Muss behalten",
+                "key": "mustKeep",
+                "description": "Fakten, Namen etc.",
+                "required": true,
+                "defaultValue": "Alle Fakten und Namen"
+            },
+            {
+                "name": "No-Gos",
+                "key": "noGos",
+                "description": "Was vermeiden?",
+                "required": true,
+                "defaultValue": "Floskeln, Wiederholungen"
+            },
+            {
+                "name": "Sprache",
+                "key": "language",
+                "description": "Zielsprache",
+                "required": true,
+                "defaultValue": "Deutsch"
+            },
+            {
+                "name": "Input Text",
+                "key": "inputText",
+                "description": "Zu überarbeitender Text",
+                "required": true
+            }
+        ],
+        "moduleId": "deepl-rewrite"
+    },
+    "useCases": {
+        "chat-writing": {
+            "id": "deepl-variants",
+            "name": "DeepL Varianten",
+            "description": "Mehrere Stilversionen eines Texts",
+            "template": "Aufgabe: Erstelle 2 Varianten des folgenden Texts.\n\nVariante A: {{variantA}}\nVariante B: {{variantB}}\n\nFür beide Varianten:\n- Zielgruppe: {{targetAudience}}\n- MUSS BEHALTEN: {{mustKeep}}\n- MUSS VERMEIDEN: {{noGos}}\n\nOriginal-Text:\n{{inputText}}\n\n---\n\nLiefere:\n1) Variante A\n2) Variante B\n3) Empfehlung: Welche Variante für welchen Kontext?",
+            "slots": [
+                {
+                    "name": "Variante A Stil",
+                    "key": "variantA",
+                    "description": "Stil der ersten Variante",
+                    "required": true,
+                    "defaultValue": "kurz und direkt"
+                },
+                {
+                    "name": "Variante B Stil",
+                    "key": "variantB",
+                    "description": "Stil der zweiten Variante",
+                    "required": true,
+                    "defaultValue": "warm und einladend"
+                }
+            ],
+            "moduleId": "deepl-rewrite"
+        }
+    }
+}

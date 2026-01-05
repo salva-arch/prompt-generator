@@ -1,0 +1,116 @@
+{
+    "toolId": "runway",
+    "general": {
+        "id": "runway-general",
+        "name": "Runway Video",
+        "description": "Text-to-Video mit Frame/Motion Trennung",
+        "template": "Frame (what we see):\n- Subject: {{subject}}\n- Environment: {{environment}}\n- Lighting: {{lighting}}\n- Style: {{style}}\n\nMotion (what moves):\n- Subject motion: {{subjectMotion}}\n- Environment motion: {{envMotion}}\n\nCamera:\n- Shot type: {{shotType}}\n- Camera movement: {{cameraMovement}}\n\nDuration: {{duration}}\n\nNegative: {{negatives}}",
+        "slots": [
+            {
+                "name": "Subject",
+                "key": "subject",
+                "description": "Hauptmotiv",
+                "required": true
+            },
+            {
+                "name": "Environment",
+                "key": "environment",
+                "description": "Umgebung",
+                "required": true
+            },
+            {
+                "name": "Lighting",
+                "key": "lighting",
+                "description": "Beleuchtung",
+                "required": true,
+                "defaultValue": "cinematic lighting"
+            },
+            {
+                "name": "Style",
+                "key": "style",
+                "description": "Visueller Stil",
+                "required": true
+            },
+            {
+                "name": "Subject Motion",
+                "key": "subjectMotion",
+                "description": "Bewegung des Subjekts",
+                "required": true
+            },
+            {
+                "name": "Environment Motion",
+                "key": "envMotion",
+                "description": "Umgebungsbewegung",
+                "required": false,
+                "defaultValue": "subtle ambient movement"
+            },
+            {
+                "name": "Shot Type",
+                "key": "shotType",
+                "description": "Einstellungsgröße",
+                "required": true,
+                "defaultValue": "medium shot"
+            },
+            {
+                "name": "Camera Movement",
+                "key": "cameraMovement",
+                "description": "Kamerabewegung",
+                "required": false,
+                "defaultValue": "static"
+            },
+            {
+                "name": "Duration",
+                "key": "duration",
+                "description": "Videodauer",
+                "required": false,
+                "defaultValue": "5s"
+            },
+            {
+                "name": "Negatives",
+                "key": "negatives",
+                "description": "Was vermeiden?",
+                "required": false,
+                "defaultValue": "no text, no warping, no morphing, steady cam"
+            }
+        ],
+        "moduleId": "runway-video"
+    },
+    "useCases": {
+        "video": {
+            "id": "runway-cinematic",
+            "name": "Runway Cinematic",
+            "description": "Kinematografische Clips",
+            "template": "CINEMATIC SHOT\n\nFrame:\n- Subject: {{subject}}\n- Setting: {{environment}}\n- Lighting: {{lighting}}\n- Color grade: {{colorGrade}}\n- Style: cinematic, {{style}}\n\nMotion:\n- Subject: {{subjectMotion}}\n- Atmosphere: {{atmosphereMotion}}\n\nCamera:\n- Type: {{shotType}}\n- Movement: {{cameraMovement}}\n- Lens feel: {{lensFeel}}\n\nMood: {{mood}}\nDuration: {{duration}}\n\nAvoid: {{negatives}}",
+            "slots": [
+                {
+                    "name": "Color Grade",
+                    "key": "colorGrade",
+                    "description": "Farbgebung",
+                    "required": false,
+                    "defaultValue": "cinematic color grading"
+                },
+                {
+                    "name": "Atmosphere Motion",
+                    "key": "atmosphereMotion",
+                    "description": "Atmosphärenbewegung",
+                    "required": false,
+                    "defaultValue": "floating particles, subtle haze"
+                },
+                {
+                    "name": "Lens Feel",
+                    "key": "lensFeel",
+                    "description": "Objektiv-Charakter",
+                    "required": false,
+                    "defaultValue": "anamorphic, shallow depth of field"
+                },
+                {
+                    "name": "Mood",
+                    "key": "mood",
+                    "description": "Stimmung",
+                    "required": true
+                }
+            ],
+            "moduleId": "runway-video"
+        }
+    }
+}

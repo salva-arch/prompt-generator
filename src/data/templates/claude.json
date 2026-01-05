@@ -1,0 +1,148 @@
+{
+    "toolId": "claude",
+    "general": {
+        "id": "claude-general",
+        "name": "Claude XML-Struktur",
+        "description": "Template mit XML-Tags für klare Trennung",
+        "template": "<role>\nDu bist {{role}} mit Expertise in {{domain}}.\n</role>\n\n<context>\n{{context}}\n{{#inputMaterial}}\nInput-Material:\n{{inputMaterial}}\n{{/inputMaterial}}\n</context>\n\n<instructions>\nZiel: {{goal}}\n\nAufgabe:\n{{task}}\n\nRegeln:\n- Ton: {{tone}}\n- Format: {{format}}\n- Länge: {{length}}\n- Muss enthalten: {{mustInclude}}\n- Muss vermeiden: {{noGos}}\n</instructions>\n\n<output_format>\n{{outputFormat}}\n</output_format>\n\n<verification>\n1) Prüfe am Ende gegen alle Regeln\n2) Liste getroffene Annahmen auf\n3) {{customVerification}}\n</verification>",
+        "slots": [
+            {
+                "name": "Rolle",
+                "key": "role",
+                "description": "Expertenrolle",
+                "required": true
+            },
+            {
+                "name": "Domain",
+                "key": "domain",
+                "description": "Fachgebiet",
+                "required": true
+            },
+            {
+                "name": "Kontext",
+                "key": "context",
+                "description": "Hintergrund und Constraints",
+                "required": true
+            },
+            {
+                "name": "Input-Material",
+                "key": "inputMaterial",
+                "description": "Zu verarbeitendes Material",
+                "required": false
+            },
+            {
+                "name": "Ziel",
+                "key": "goal",
+                "description": "Was erreichen?",
+                "required": true
+            },
+            {
+                "name": "Aufgabe",
+                "key": "task",
+                "description": "Konkrete Schritte",
+                "required": true
+            },
+            {
+                "name": "Ton",
+                "key": "tone",
+                "description": "Schreibstil",
+                "required": false,
+                "defaultValue": "präzise, hilfreich"
+            },
+            {
+                "name": "Format",
+                "key": "format",
+                "description": "Struktur des Outputs",
+                "required": true
+            },
+            {
+                "name": "Länge",
+                "key": "length",
+                "description": "Gewünschte Länge",
+                "required": false
+            },
+            {
+                "name": "Muss enthalten",
+                "key": "mustInclude",
+                "description": "Pflicht-Elemente",
+                "required": false
+            },
+            {
+                "name": "No-Gos",
+                "key": "noGos",
+                "description": "Was vermeiden?",
+                "required": false
+            },
+            {
+                "name": "Output-Format",
+                "key": "outputFormat",
+                "description": "Detaillierte Format-Beschreibung",
+                "required": true,
+                "defaultValue": "Strukturierter Markdown-Text"
+            },
+            {
+                "name": "Custom Verification",
+                "key": "customVerification",
+                "description": "Zusätzliche Prüfschritte",
+                "required": false,
+                "defaultValue": "Schlage 2 Alternativen vor"
+            }
+        ],
+        "moduleId": "claude-xml"
+    },
+    "useCases": {
+        "coding": {
+            "id": "claude-coding",
+            "name": "Claude Coding",
+            "description": "XML-strukturiert für Code mit Tests",
+            "template": "<role>\nDu bist Senior Software Engineer spezialisiert auf {{techStack}}.\n</role>\n\n<context>\nProjekt: {{projectContext}}\nAktuelle Datei: {{currentFile}}\nBestehende Funktionen: {{existingCode}}\n</context>\n\n<instructions>\nZiel: {{goal}}\n\nAnforderungen:\n{{requirements}}\n\nCode-Stil:\n- Lesbarkeit vor Cleverness\n- Idiomatic {{techStack}}\n- Error Handling implementieren\n- {{additionalConstraints}}\n</instructions>\n\n<output_format>\n1) Implementierung mit Kommentaren\n2) Unit Tests (mindestens 3 Cases inkl. Edge Cases)\n3) Kurze Erklärung des Ansatzes\n</output_format>\n\n<verification>\n1) Code kompiliert/läuft fehlerfrei\n2) Alle Edge Cases abgedeckt\n3) Keine Sicherheitslücken\n4) Tests sind aussagekräftig\n</verification>",
+            "slots": [
+                {
+                    "name": "Tech Stack",
+                    "key": "techStack",
+                    "description": "Sprache + Framework",
+                    "required": true
+                },
+                {
+                    "name": "Projekt-Kontext",
+                    "key": "projectContext",
+                    "description": "Was macht das Projekt?",
+                    "required": true
+                },
+                {
+                    "name": "Aktuelle Datei",
+                    "key": "currentFile",
+                    "description": "Aktueller Dateipfad",
+                    "required": false
+                },
+                {
+                    "name": "Bestehender Code",
+                    "key": "existingCode",
+                    "description": "Relevante bestehende Funktionen",
+                    "required": false
+                },
+                {
+                    "name": "Anforderungen",
+                    "key": "requirements",
+                    "description": "Funktionale Anforderungen",
+                    "required": true
+                },
+                {
+                    "name": "Zusätzliche Constraints",
+                    "key": "additionalConstraints",
+                    "description": "Weitere Vorgaben",
+                    "required": false
+                }
+            ],
+            "moduleId": "claude-xml"
+        },
+        "chat-writing": {
+            "id": "claude-analysis",
+            "name": "Claude Analyse",
+            "description": "Für Textanalyse und Verarbeitung",
+            "template": "<role>\nDu bist {{role}} für {{domain}}-Analyse.\n</role>\n\n<context>\n{{context}}\n\n<document>\n{{inputMaterial}}\n</document>\n</context>\n\n<instructions>\nZiel: {{goal}}\n\nAnalyse-Aufgabe:\n{{task}}\n\nAnforderungen:\n- Ton: {{tone}}\n- Format: {{format}}\n- Fokus auf: {{mustInclude}}\n- Vermeiden: {{noGos}}\n</instructions>\n\n<output_format>\n1) Hauptanalyse\n2) Kernthesen extrahieren\n3) Stärken und Schwächen\n4) Empfehlung\n</output_format>\n\n<verification>\n1) Alle Aspekte aus <instructions> behandelt?\n2) Annahmen explizit gemacht?\n3) 2 alternative Interpretationen vorschlagen\n</verification>",
+            "slots": [],
+            "moduleId": "claude-xml"
+        }
+    }
+}

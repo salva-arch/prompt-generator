@@ -1,0 +1,76 @@
+{
+    "toolId": "perplexity",
+    "general": {
+        "id": "perplexity-general",
+        "name": "Perplexity Research",
+        "description": "Recherche-Template ohne Few-Shot-Beispiele",
+        "template": "Ziel: {{goal}}\n\nKontext: {{context}}\n\nScope:\n- Zeitraum: {{timeframe}}\n- Quellentyp: {{sourceType}}\n- Ausschlüsse: {{exclusions}}\n\nAufgabe:\n1) Beantworte die Frage strukturiert mit Quellenangaben\n2) Tabelle: {{tableFormat}}\n3) Liste offene Unsicherheiten auf\n\nFormat: {{format}}\nSprache: {{language}}",
+        "slots": [
+            {
+                "name": "Ziel/Frage",
+                "key": "goal",
+                "description": "Klare Forschungsfrage",
+                "required": true
+            },
+            {
+                "name": "Kontext",
+                "key": "context",
+                "description": "Warum wichtig, Region/Branche",
+                "required": true
+            },
+            {
+                "name": "Zeitraum",
+                "key": "timeframe",
+                "description": "z.B. 2023-heute",
+                "required": false,
+                "defaultValue": "aktuell"
+            },
+            {
+                "name": "Quellentyp",
+                "key": "sourceType",
+                "description": "akademisch, news, docs",
+                "required": false,
+                "defaultValue": "seriöse Quellen"
+            },
+            {
+                "name": "Ausschlüsse",
+                "key": "exclusions",
+                "description": "Was nicht?",
+                "required": false,
+                "defaultValue": "kein Marketing"
+            },
+            {
+                "name": "Tabellenformat",
+                "key": "tableFormat",
+                "description": "Spalten der Tabelle",
+                "required": false,
+                "defaultValue": "Option | Pro | Contra | Quelle"
+            },
+            {
+                "name": "Format",
+                "key": "format",
+                "description": "Output-Format",
+                "required": false,
+                "defaultValue": "strukturiert mit H2/H3"
+            },
+            {
+                "name": "Sprache",
+                "key": "language",
+                "description": "Zielsprache",
+                "required": true,
+                "defaultValue": "Deutsch"
+            }
+        ],
+        "moduleId": "perplexity-research"
+    },
+    "useCases": {
+        "research": {
+            "id": "perplexity-deep-research",
+            "name": "Perplexity Tiefenrecherche",
+            "description": "Für detaillierte Faktenrecherche mit Quellenvergleich",
+            "template": "Forschungsfrage: {{goal}}\n\nKontext und Relevanz: {{context}}\n\nRecherche-Parameter:\n- Zeitraum: {{timeframe}}\n- Quellen: {{sourceType}}\n- Ausschluss: {{exclusions}}\n- Mind. 2 unabhängige Quellen pro Kernaussage\n\nGewünschtes Ergebnis:\n1) Strukturierte Antwort (H2/H3 Überschriften)\n2) Evidenz-Tabelle:\n   | Aussage | Quelle 1 | Quelle 2 | Übereinstimmung |\n3) Widersprüchliche Befunde kennzeichnen\n4) Offene Fragen und Forschungslücken\n\nSprache: {{language}}\nFormat: {{format}}",
+            "slots": [],
+            "moduleId": "perplexity-research"
+        }
+    }
+}

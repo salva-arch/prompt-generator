@@ -1,0 +1,121 @@
+{
+    "toolId": "midjourney",
+    "general": {
+        "id": "midjourney-general",
+        "name": "Midjourney Universal",
+        "description": "Bildgenerierung mit Parametern am Ende",
+        "template": "{{subject}}, {{action}}, {{environment}}, {{lighting}}, {{mood}}, {{style}}, {{composition}}{{#materials}}, {{materials}}{{/materials}} --ar {{aspectRatio}} --s {{stylize}}{{#chaos}} --chaos {{chaos}}{{/chaos}}{{#negatives}} --no {{negatives}}{{/negatives}}",
+        "slots": [
+            {
+                "name": "Subject",
+                "key": "subject",
+                "description": "Hauptmotiv (englisch)",
+                "required": true
+            },
+            {
+                "name": "Action/Pose",
+                "key": "action",
+                "description": "Was tut das Subjekt?",
+                "required": false
+            },
+            {
+                "name": "Environment",
+                "key": "environment",
+                "description": "Umgebung/Setting",
+                "required": true
+            },
+            {
+                "name": "Lighting",
+                "key": "lighting",
+                "description": "Beleuchtung",
+                "required": true,
+                "defaultValue": "natural lighting"
+            },
+            {
+                "name": "Mood",
+                "key": "mood",
+                "description": "Stimmung",
+                "required": false
+            },
+            {
+                "name": "Style",
+                "key": "style",
+                "description": "Stil-Referenzen (deskriptiv)",
+                "required": true
+            },
+            {
+                "name": "Composition",
+                "key": "composition",
+                "description": "Bildkomposition",
+                "required": false,
+                "defaultValue": "centered composition"
+            },
+            {
+                "name": "Materials",
+                "key": "materials",
+                "description": "Texturen/Materialien",
+                "required": false
+            },
+            {
+                "name": "Aspect Ratio",
+                "key": "aspectRatio",
+                "description": "Seitenverhältnis",
+                "required": true,
+                "defaultValue": "16:9"
+            },
+            {
+                "name": "Stylize",
+                "key": "stylize",
+                "description": "0-1000 (niedrig=prompt-treu)",
+                "required": true,
+                "defaultValue": "100"
+            },
+            {
+                "name": "Chaos",
+                "key": "chaos",
+                "description": "0-100 für Variation",
+                "required": false
+            },
+            {
+                "name": "Negatives",
+                "key": "negatives",
+                "description": "Was ausschließen?",
+                "required": false,
+                "defaultValue": "text, watermark, blur"
+            }
+        ],
+        "moduleId": "midjourney-params"
+    },
+    "useCases": {
+        "image": {
+            "id": "midjourney-photo",
+            "name": "Midjourney Fotorealistisch",
+            "description": "Für fotorealistische Bilder",
+            "template": "{{subject}}, {{action}}, {{environment}}, {{lighting}}, shot on {{camera}}, {{lensType}} lens, {{quality}}, {{style}} --ar {{aspectRatio}} --s {{stylize}} --no {{negatives}}",
+            "slots": [
+                {
+                    "name": "Camera",
+                    "key": "camera",
+                    "description": "Kameramodell",
+                    "required": false,
+                    "defaultValue": "Sony A7IV"
+                },
+                {
+                    "name": "Lens Type",
+                    "key": "lensType",
+                    "description": "Objektiv",
+                    "required": false,
+                    "defaultValue": "50mm f/1.4"
+                },
+                {
+                    "name": "Quality",
+                    "key": "quality",
+                    "description": "Qualitätsbeschreibung",
+                    "required": false,
+                    "defaultValue": "8k, ultra detailed, RAW photo"
+                }
+            ],
+            "moduleId": "midjourney-params"
+        }
+    }
+}

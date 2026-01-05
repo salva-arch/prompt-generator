@@ -1,0 +1,51 @@
+[
+    {
+        "id": "chat-writing",
+        "name": "Chat & Writing",
+        "description": "Texte schreiben, umformulieren, zusammenfassen",
+        "icon": "💬",
+        "applicableFormula": "universal"
+    },
+    {
+        "id": "research",
+        "name": "Recherche",
+        "description": "Fakten recherchieren, Quellen finden, analysieren",
+        "icon": "🔍",
+        "applicableFormula": "research"
+    },
+    {
+        "id": "coding",
+        "name": "Coding",
+        "description": "Code schreiben, debuggen, refactoren",
+        "icon": "💻",
+        "applicableFormula": "coding"
+    },
+    {
+        "id": "image",
+        "name": "Bilder",
+        "description": "Bilder generieren, bearbeiten, Konzepte visualisieren",
+        "icon": "🎨",
+        "applicableFormula": "media"
+    },
+    {
+        "id": "video",
+        "name": "Video",
+        "description": "Videos generieren, Animationen erstellen",
+        "icon": "🎬",
+        "applicableFormula": "media"
+    },
+    {
+        "id": "audio-music",
+        "name": "Audio & Musik",
+        "description": "Musik generieren, Sounds erstellen",
+        "icon": "🎵",
+        "applicableFormula": "media"
+    },
+    {
+        "id": "slides-docs",
+        "name": "Präsentationen & Docs",
+        "description": "Präsentationen, Dokumente, Zusammenfassungen",
+        "icon": "📊",
+        "applicableFormula": "universal"
+    }
+]

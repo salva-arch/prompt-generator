@@ -1,0 +1,92 @@
+{
+    "toolId": "copilot",
+    "general": {
+        "id": "copilot-general",
+        "name": "GitHub Copilot Code",
+        "description": "Code-Generierung mit Kontext-First Ansatz",
+        "template": "// GOAL: {{goal}}\n// CONTEXT: {{context}}\n// FILE: {{currentFile}}\n// STACK: {{techStack}}\n//\n// REQUIREMENTS:\n{{requirements}}\n//\n// CONSTRAINTS:\n// - Style: {{codeStyle}}\n// - Must include: Tests\n// - Must avoid: {{noGos}}\n//\n// OUTPUT: Only code changes + tests, no explanations unless asked.",
+        "slots": [
+            {
+                "name": "Goal",
+                "key": "goal",
+                "description": "Was soll erreicht werden?",
+                "required": true
+            },
+            {
+                "name": "Context",
+                "key": "context",
+                "description": "Projekt/Modul/Abhängigkeiten",
+                "required": true
+            },
+            {
+                "name": "Current File",
+                "key": "currentFile",
+                "description": "Aktueller Dateipfad",
+                "required": false
+            },
+            {
+                "name": "Tech Stack",
+                "key": "techStack",
+                "description": "Sprache + Framework",
+                "required": true
+            },
+            {
+                "name": "Requirements",
+                "key": "requirements",
+                "description": "Funktionale Anforderungen als Liste",
+                "required": true
+            },
+            {
+                "name": "Code Style",
+                "key": "codeStyle",
+                "description": "Stil-Vorgaben",
+                "required": false,
+                "defaultValue": "idiomatic, readable, DRY"
+            },
+            {
+                "name": "No-Gos",
+                "key": "noGos",
+                "description": "Was vermeiden?",
+                "required": false,
+                "defaultValue": "any types, magic numbers, missing error handling"
+            }
+        ],
+        "moduleId": "copilot-code"
+    },
+    "useCases": {
+        "coding": {
+            "id": "copilot-refactor",
+            "name": "Copilot Refactor",
+            "description": "Code-Refactoring mit Qualitätsfokus",
+            "template": "// GOAL: Refactor for {{refactorGoal}}\n// CONTEXT: {{context}}\n// FILE: {{currentFile}}\n//\n// CURRENT CODE:\n{{existingCode}}\n//\n// REFACTORING REQUIREMENTS:\n{{requirements}}\n//\n// CONSTRAINTS:\n// - Preserve: {{mustPreserve}}\n// - Improve: {{improvements}}\n// - Must include: Updated tests\n//\n// OUTPUT: \n// 1) Refactored code\n// 2) Updated/new tests\n// 3) Brief summary of changes",
+            "slots": [
+                {
+                    "name": "Refactor Goal",
+                    "key": "refactorGoal",
+                    "description": "Readability, Performance, etc.",
+                    "required": true
+                },
+                {
+                    "name": "Existing Code",
+                    "key": "existingCode",
+                    "description": "Aktueller Code",
+                    "required": true
+                },
+                {
+                    "name": "Must Preserve",
+                    "key": "mustPreserve",
+                    "description": "Was beibehalten?",
+                    "required": true,
+                    "defaultValue": "External API, function signatures"
+                },
+                {
+                    "name": "Improvements",
+                    "key": "improvements",
+                    "description": "Was verbessern?",
+                    "required": true
+                }
+            ],
+            "moduleId": "copilot-code"
+        }
+    }
+}

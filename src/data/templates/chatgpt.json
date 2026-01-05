@@ -1,0 +1,163 @@
+{
+    "toolId": "chatgpt",
+    "general": {
+        "id": "chatgpt-general",
+        "name": "ChatGPT Universal",
+        "description": "Allgemeines Template für ChatGPT mit Rolle-Kontext-Aufgabe Struktur",
+        "template": "Rolle: Du bist {{role}} mit Fokus auf {{domain}}.\n\nZiel: {{goal}}\n\nKontext:\n- Zielgruppe: {{targetAudience}}\n- Hintergrund: {{context}}\n{{#inputMaterial}}- Input-Material: {{inputMaterial}}{{/inputMaterial}}\n\nAufgabe:\n{{task}}\n\nQualitätsregeln:\n- Muss enthalten: {{mustInclude}}\n- Muss vermeiden: {{noGos}}\n- Ton: {{tone}}\n- Format: {{format}}\n- Länge: {{length}}\n- Sprache: {{language}}\n\nOutput:\nA) Ergebnis gemäß Format\nB) Kurz-Check: \"Erfüllt/Fehlt\" zu den Qualitätsregeln\n{{#verification}}C) {{verificationSteps}}{{/verification}}",
+        "slots": [
+            {
+                "name": "Rolle",
+                "key": "role",
+                "description": "Expertenrolle",
+                "required": true,
+                "defaultValue": "Experte"
+            },
+            {
+                "name": "Domain",
+                "key": "domain",
+                "description": "Fachgebiet",
+                "required": true
+            },
+            {
+                "name": "Ziel",
+                "key": "goal",
+                "description": "Was soll erreicht werden?",
+                "required": true
+            },
+            {
+                "name": "Zielgruppe",
+                "key": "targetAudience",
+                "description": "Für wen?",
+                "required": true
+            },
+            {
+                "name": "Kontext",
+                "key": "context",
+                "description": "Relevanter Hintergrund",
+                "required": true
+            },
+            {
+                "name": "Input-Material",
+                "key": "inputMaterial",
+                "description": "Vorhandenes Material",
+                "required": false
+            },
+            {
+                "name": "Aufgabe",
+                "key": "task",
+                "description": "Konkrete Aufgabe",
+                "required": true
+            },
+            {
+                "name": "Muss enthalten",
+                "key": "mustInclude",
+                "description": "Pflicht-Elemente",
+                "required": false,
+                "defaultValue": "Relevante Fakten"
+            },
+            {
+                "name": "No-Gos",
+                "key": "noGos",
+                "description": "Was vermeiden?",
+                "required": false,
+                "defaultValue": "Floskeln, Füllwörter"
+            },
+            {
+                "name": "Ton",
+                "key": "tone",
+                "description": "Schreibstil",
+                "required": true,
+                "defaultValue": "sachlich, klar"
+            },
+            {
+                "name": "Format",
+                "key": "format",
+                "description": "Output-Format",
+                "required": true,
+                "defaultValue": "strukturierter Text"
+            },
+            {
+                "name": "Länge",
+                "key": "length",
+                "description": "Gewünschte Länge",
+                "required": false,
+                "defaultValue": "angemessen"
+            },
+            {
+                "name": "Sprache",
+                "key": "language",
+                "description": "Zielsprache",
+                "required": true,
+                "defaultValue": "Deutsch"
+            },
+            {
+                "name": "Prüfschritte",
+                "key": "verificationSteps",
+                "description": "Selbst-Check",
+                "required": false
+            }
+        ],
+        "moduleId": null
+    },
+    "useCases": {
+        "chat-writing": {
+            "id": "chatgpt-writing",
+            "name": "ChatGPT Schreiben",
+            "description": "Optimiert für Texterstellung und Umformulierung",
+            "template": "Rolle: Du bist {{role}}, spezialisiert auf {{domain}}.\n\nZiel: {{goal}}\n\nKontext:\n- Zielgruppe: {{targetAudience}}\n- Hintergrund: {{context}}\n\nSchreibaufgabe:\n{{task}}\n\nStil-Vorgaben:\n- Ton: {{tone}}\n- Länge: {{length}}\n- Format: {{format}}\n- Muss enthalten: {{mustInclude}}\n- Muss vermeiden: {{noGos}}\n- Sprache: {{language}}\n\nOutput:\n1) Text gemäß Vorgaben\n2) Stil-Check: Erfülle ich alle Vorgaben? (Ja/Nein + Begründung)\n3) 3 Verbesserungsvorschläge für den Text",
+            "slots": [],
+            "moduleId": null
+        },
+        "coding": {
+            "id": "chatgpt-coding",
+            "name": "ChatGPT Coding",
+            "description": "Optimiert für Code-Generierung und Debugging",
+            "template": "// GOAL: {{goal}}\n// CONTEXT: {{context}}\n// STACK: {{techStack}}\n// FILE: {{currentFile}}\n\n// REQUIREMENTS:\n{{requirements}}\n\n// CONSTRAINTS:\n- Style: {{codeStyle}}\n- Must include: Tests\n- Must avoid: {{noGos}}\n\n// OUTPUT:\n1) Code implementation\n2) Unit tests\n3) Brief explanation of approach",
+            "slots": [
+                {
+                    "name": "Tech Stack",
+                    "key": "techStack",
+                    "description": "Sprache + Framework",
+                    "required": true
+                },
+                {
+                    "name": "Current File",
+                    "key": "currentFile",
+                    "description": "Aktuelle Datei/Modul",
+                    "required": false
+                },
+                {
+                    "name": "Requirements",
+                    "key": "requirements",
+                    "description": "Funktionale Anforderungen",
+                    "required": true
+                },
+                {
+                    "name": "Code Style",
+                    "key": "codeStyle",
+                    "description": "Code-Stil",
+                    "required": false,
+                    "defaultValue": "clean, readable, idiomatic"
+                }
+            ],
+            "moduleId": null
+        },
+        "research": {
+            "id": "chatgpt-research",
+            "name": "ChatGPT Recherche",
+            "description": "Für Analyse und Recherche-Aufgaben",
+            "template": "Rolle: Du bist Recherche-Analyst für {{domain}}.\n\nForschungsfrage: {{goal}}\n\nKontext:\n- Zielgruppe: {{targetAudience}}\n- Hintergrund: {{context}}\n\nAnalyse-Aufgabe:\n{{task}}\n\nAnforderungen:\n- Quellen: {{sourceRequirements}}\n- Format: {{format}}\n- Sprache: {{language}}\n\nOutput:\n1) Strukturierte Analyse\n2) Tabelle: Aspekt | Erkenntnis | Quelle/Evidenz\n3) Offene Fragen und Unsicherheiten\n4) Empfehlung",
+            "slots": [
+                {
+                    "name": "Quellenanforderung",
+                    "key": "sourceRequirements",
+                    "description": "Art der Quellen",
+                    "required": false,
+                    "defaultValue": "Faktenbasiert, nachvollziehbar"
+                }
+            ],
+            "moduleId": null
+        }
+    }
+}

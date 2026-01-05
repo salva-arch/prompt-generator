@@ -1,0 +1,311 @@
+[
+  {
+    "id": "chatgpt",
+    "name": "ChatGPT (OpenAI)",
+    "category": "text-chat",
+    "icon": "🤖",
+    "url": "https://chatgpt.com",
+    "description": "Vielseitiger KI-Assistent für Text, Code und Analyse",
+    "strengths": [
+      "Hervorragendes Sprachverständnis",
+      "Vielseitig (Text, Code, Analyse)",
+      "Sehr schnelle Antworten"
+    ],
+    "limitations": [
+      "Halluzinationen bei Fakten möglich",
+      "Standard-Texte oft floskelhaft"
+    ],
+    "specialRules": [
+      "Klare Ziel-/Format-Constraints reduzieren Gelaber",
+      "2-Pass-Loop: Erstelle V1 → kritisiere V1 → erstelle V2",
+      "Bei Code: Lesbarkeit zuerst + Tests verlangen"
+    ]
+  },
+  {
+    "id": "perplexity",
+    "name": "Perplexity AI",
+    "category": "research",
+    "icon": "🔎",
+    "url": "https://www.perplexity.ai",
+    "description": "KI-Suchmaschine mit Quellenangaben",
+    "strengths": [
+      "Antworten mit Fußnoten und Quellen",
+      "Zugriff auf aktuelles Web",
+      "Gut für Faktenrecherche"
+    ],
+    "limitations": [
+      "Bias der Quellen möglich",
+      "Keine Few-Shot-Beispiele nutzen (verwirrt Suche)"
+    ],
+    "specialRules": [
+      "KEINE Few-Shot-Beispiele im Prompt",
+      "Klare Frage + Scope + Quellenformat",
+      "Zeitraum und Quellentyp explizit machen"
+    ]
+  },
+  {
+    "id": "claude",
+    "name": "Claude (Anthropic)",
+    "category": "text-chat",
+    "icon": "🧠",
+    "url": "https://claude.ai",
+    "description": "Nuancierter KI-Assistent mit großem Kontextfenster",
+    "strengths": [
+      "Sehr nuancierte Sprache",
+      "Riesiges Kontextfenster (PDFs, Bücher)",
+      "Stark im Coding"
+    ],
+    "limitations": [
+      "Strenge Sicherheitsfilter",
+      "Weniger Web-Browsing"
+    ],
+    "specialRules": [
+      "XML-Tags für Trennung von Kontext/Instruktionen",
+      "Bei Coding: Tests/Regression erzwingen",
+      "Struktur: <role>, <context>, <instructions>, <output_format>"
+    ]
+  },
+  {
+    "id": "midjourney",
+    "name": "Midjourney",
+    "category": "image",
+    "icon": "🎨",
+    "url": "https://www.midjourney.com",
+    "description": "KI-Bildgenerator mit höchster Qualität",
+    "strengths": [
+      "Höchste Bildqualität",
+      "Kreativ und fotorealistisch",
+      "Viele Style-Optionen"
+    ],
+    "limitations": [
+      "Bedienung über Discord",
+      "Urheberrechtsfragen",
+      "Kostenpflichtig"
+    ],
+    "specialRules": [
+      "Prompte auf ENGLISCH",
+      "Parameter am Ende: --ar, --s, --chaos, --no",
+      "Negative via --no [element]"
+    ]
+  },
+  {
+    "id": "deepl",
+    "name": "DeepL / DeepL Write",
+    "category": "text-chat",
+    "icon": "🗣️",
+    "url": "https://www.deepl.com/write",
+    "description": "Beste Übersetzung und Stilverbesserung",
+    "strengths": [
+      "Beste Übersetzungsqualität",
+      "'Write' verbessert Stil nuanciert",
+      "Synonymvorschläge beim Klicken"
+    ],
+    "limitations": [
+      "Kontextfehler bei Fachsprache möglich",
+      "Free-Version speichert evtl. Texte"
+    ],
+    "specialRules": [
+      "Definiere 'Muss behalten' (Faktenanker)",
+      "Definiere 'Muss vermeiden'",
+      "2 Varianten erzeugen: knapp vs. warm"
+    ]
+  },
+  {
+    "id": "canva",
+    "name": "Canva (Magic Studio)",
+    "category": "presentation",
+    "icon": "🖼️",
+    "url": "https://www.canva.com",
+    "description": "All-in-One Design-Tool mit KI-Funktionen",
+    "strengths": [
+      "Alles in einem: Layout, Bild, Text",
+      "Templates für alle Formate",
+      "Magic Edit für lokale Änderungen"
+    ],
+    "limitations": [
+      "Generischer Stock-Foto-Look",
+      "Weniger Kontrolle als Profi-Tools"
+    ],
+    "specialRules": [
+      "Klare Layout-Constraints wirken stärker",
+      "Fordere Varianten (A/B/C)",
+      "Brand-Regeln + Layout-Wünsche angeben"
+    ]
+  },
+  {
+    "id": "copilot",
+    "name": "GitHub Copilot",
+    "category": "coding",
+    "icon": "⌨️",
+    "url": "https://github.com/features/copilot",
+    "description": "KI-gestütztes Coding mit Kontext-Awareness",
+    "strengths": [
+      "Kontext-aware Autocomplete",
+      "Chat im Editor",
+      "Versteht Projekt-Struktur"
+    ],
+    "limitations": [
+      "Vorschläge müssen geprüft werden (Security)",
+      "Kostenpflichtig (Free for Students)"
+    ],
+    "specialRules": [
+      "Lokalen Kontext (Dateien) explizit machen",
+      "Comment-Driven-Dev: Erst kommentieren, was passieren soll",
+      "Tests immer mit anfordern"
+    ]
+  },
+  {
+    "id": "gamma",
+    "name": "Gamma",
+    "category": "presentation",
+    "icon": "📊",
+    "url": "https://gamma.app",
+    "description": "KI-Präsentationsgenerator",
+    "strengths": [
+      "Komplette Decks in Sekunden",
+      "Gute Struktur-Vorschläge",
+      "'Edit with AI' für einzelne Karten"
+    ],
+    "limitations": [
+      "Inhalte oft oberflächlich",
+      "Texte müssen gekürzt werden"
+    ],
+    "specialRules": [
+      "Audience/Outcome/Slides genau definieren",
+      "Struktur vorgeben: Hook → Problem → Lösung → CTA",
+      "Nach Generierung radikal kürzen"
+    ]
+  },
+  {
+    "id": "elicit",
+    "name": "Elicit",
+    "category": "research",
+    "icon": "🔬",
+    "url": "https://elicit.com",
+    "description": "KI-Forschungsassistent für Paper-Analyse",
+    "strengths": [
+      "Findet und analysiert Paper",
+      "Matrix-View für Vergleiche",
+      "Extrahiert Daten aus PDFs"
+    ],
+    "limitations": [
+      "Englisch dominiert",
+      "Account erforderlich"
+    ],
+    "specialRules": [
+      "Forschungsfragen ins Englische übersetzen (10x Treffer)",
+      "Filter in natürlicher Sprache nutzen",
+      "Study-Type und Jahr angeben"
+    ]
+  },
+  {
+    "id": "suno-udio",
+    "name": "Suno / Udio",
+    "category": "audio",
+    "icon": "🎵",
+    "url": "https://suno.com",
+    "description": "KI-Musikgenerator für Songs",
+    "strengths": [
+      "Beeindruckende Songs (Text + Musik)",
+      "Viele Genres und Stile",
+      "Instrumental Mode verfügbar"
+    ],
+    "limitations": [
+      "Urheberrecht komplex",
+      "Kitschige Texte möglich"
+    ],
+    "specialRules": [
+      "Kontext direkt in Lyrics-Box geben",
+      "Englische Genre-Begriffe nutzen",
+      "Style: Genre + Mood + Era + BPM + Instruments"
+    ]
+  },
+  {
+    "id": "notion-ai",
+    "name": "Notion AI",
+    "category": "text-chat",
+    "icon": "📝",
+    "url": "https://www.notion.so/product/ai",
+    "description": "KI direkt in deinen Notizen",
+    "strengths": [
+      "In Notizen integriert",
+      "Zusammenfassungen und Action Items",
+      "AI Autofill in Datenbanken"
+    ],
+    "limitations": [
+      "Kostenpflichtiges Add-on",
+      "Verleitet zur Passivität"
+    ],
+    "specialRules": [
+      "AI Autofill für Datenbank-Properties nutzen",
+      "Markieren → 'Action Items finden'",
+      "Bei fehlender Info: 'UNBEKANNT' schreiben lassen"
+    ]
+  },
+  {
+    "id": "runway",
+    "name": "Runway (Gen-2/3)",
+    "category": "video",
+    "icon": "🎬",
+    "url": "https://runwayml.com",
+    "description": "Text-to-Video KI-Generator",
+    "strengths": [
+      "Text-to-Video Generation",
+      "Motion Brush für gezielte Bewegung",
+      "Hochwertige Ergebnisse"
+    ],
+    "limitations": [
+      "Hoher Rechenaufwand",
+      "Credits-basiert"
+    ],
+    "specialRules": [
+      "Frame (Bild) von Motion (Bewegung) trennen",
+      "Englische Kamerabegriffe: zoom, pan, tilt",
+      "Negative: no text, no warping, steady cam"
+    ]
+  },
+  {
+    "id": "imagefx",
+    "name": "Google ImageFX",
+    "category": "image",
+    "icon": "🍌",
+    "url": "https://gemini.google.com",
+    "description": "Googles Bildgenerator mit Text-Rendering",
+    "strengths": [
+      "Hervorragendes Text-Rendering in Bildern",
+      "Hohe Prompt-Treue (Imagen 3)",
+      "Natürliche Sprache verstehen"
+    ],
+    "limitations": [
+      "Teilweise strenge Sicherheitsfilter",
+      "Google Account erforderlich"
+    ],
+    "specialRules": [
+      "Text-Rendering nutzen: 'A neon sign saying [TEXT]'",
+      "Natürliche Sprache in ganzen Sätzen",
+      "Seitenverhältnis im Prompt nennen"
+    ]
+  },
+  {
+    "id": "gemini",
+    "name": "Gemini (Google)",
+    "category": "text-chat",
+    "icon": "✨",
+    "url": "https://gemini.google.com",
+    "description": "Googles multimodaler KI-Assistent",
+    "strengths": [
+      "Workspace-Integration (Docs/Drive)",
+      "Multimodal (Bilder, PDFs)",
+      "'Grounding' gegen Halluzinationen"
+    ],
+    "limitations": [
+      "Datenschutz beachten (Private vs Edu)",
+      "Weniger nuanciert als Claude"
+    ],
+    "specialRules": [
+      "Multimodal: Bilder/PDFs hochladen",
+      "Integration: 'Finde in meinem Drive das Dokument X'",
+      "Grounding (G-Symbol) gegen Halluzinationen nutzen"
+    ]
+  }
+]

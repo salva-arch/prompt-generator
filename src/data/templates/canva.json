@@ -1,0 +1,137 @@
+{
+    "toolId": "canva",
+    "general": {
+        "id": "canva-general",
+        "name": "Canva Magic Studio",
+        "description": "Design-Erstellung mit Layout-Constraints",
+        "template": "Projekt: {{projectType}}\n\nZiel: {{goal}}\nZielgruppe: {{targetAudience}}\n\nBrand-Regeln:\n- Farben: {{brandColors}}\n- Schriftstil: {{fontStyle}}\n- Bildstil: {{imageStyle}}\n\nLayout:\n- Struktur: {{layoutStructure}}\n- Weißraum: {{whitespace}}\n\nInhalt:\n{{contentBullets}}\n\nNo-Gos: {{noGos}}\n\nOutput: {{variants}} Varianten ({{variantStyles}})",
+        "slots": [
+            {
+                "name": "Projekt-Typ",
+                "key": "projectType",
+                "description": "Instagram Carousel, Pitch Deck, etc.",
+                "required": true
+            },
+            {
+                "name": "Ziel",
+                "key": "goal",
+                "description": "informieren/verkaufen/etc.",
+                "required": true
+            },
+            {
+                "name": "Zielgruppe",
+                "key": "targetAudience",
+                "description": "Für wen?",
+                "required": true
+            },
+            {
+                "name": "Brand-Farben",
+                "key": "brandColors",
+                "description": "Farbpalette",
+                "required": false,
+                "defaultValue": "Markenfarben oder neutral"
+            },
+            {
+                "name": "Schriftstil",
+                "key": "fontStyle",
+                "description": "Typografie-Stil",
+                "required": false,
+                "defaultValue": "modern, lesbar"
+            },
+            {
+                "name": "Bildstil",
+                "key": "imageStyle",
+                "description": "Fotos, Illustrationen, etc.",
+                "required": false,
+                "defaultValue": "clean, professionell"
+            },
+            {
+                "name": "Layout-Struktur",
+                "key": "layoutStructure",
+                "description": "Spalten, Raster, etc.",
+                "required": false,
+                "defaultValue": "clean, viel Weißraum"
+            },
+            {
+                "name": "Weißraum",
+                "key": "whitespace",
+                "description": "viel/mittel/wenig",
+                "required": false,
+                "defaultValue": "viel"
+            },
+            {
+                "name": "Inhalt",
+                "key": "contentBullets",
+                "description": "Hauptpunkte und CTA",
+                "required": true
+            },
+            {
+                "name": "No-Gos",
+                "key": "noGos",
+                "description": "Was vermeiden?",
+                "required": false,
+                "defaultValue": "zu verspielt, Stock-Klischees"
+            },
+            {
+                "name": "Anzahl Varianten",
+                "key": "variants",
+                "description": "Wie viele Varianten?",
+                "required": false,
+                "defaultValue": "3"
+            },
+            {
+                "name": "Varianten-Stile",
+                "key": "variantStyles",
+                "description": "Beschreibung der Varianten",
+                "required": false,
+                "defaultValue": "seriös / modern / bold"
+            }
+        ],
+        "moduleId": "canva-design"
+    },
+    "useCases": {
+        "slides-docs": {
+            "id": "canva-presentation",
+            "name": "Canva Präsentation",
+            "description": "Für Präsentationen und Decks",
+            "template": "Präsentation: {{topic}}\n\nZielgruppe: {{targetAudience}}\nZiel: {{goal}}\n\nDesign:\n- Thema: {{designTheme}}\n- Farben: {{brandColors}}\n- Bildstil: {{imageStyle}}\n\nStruktur ({{slideCount}} Slides):\n{{slideStructure}}\n\nPflicht-Elemente:\n- {{mustInclude}}\n\nNo-Gos: {{noGos}}",
+            "slots": [
+                {
+                    "name": "Thema",
+                    "key": "topic",
+                    "description": "Präsentationsthema",
+                    "required": true
+                },
+                {
+                    "name": "Design-Thema",
+                    "key": "designTheme",
+                    "description": "z.B. Dark Academia, Minimalistisch",
+                    "required": true,
+                    "defaultValue": "modern, professionell"
+                },
+                {
+                    "name": "Slide-Anzahl",
+                    "key": "slideCount",
+                    "description": "Anzahl Folien",
+                    "required": true,
+                    "defaultValue": "10"
+                },
+                {
+                    "name": "Slide-Struktur",
+                    "key": "slideStructure",
+                    "description": "Welche Folien?",
+                    "required": true,
+                    "defaultValue": "1) Titel, 2) Agenda, 3-8) Inhalt, 9) Zusammenfassung, 10) CTA"
+                },
+                {
+                    "name": "Muss enthalten",
+                    "key": "mustInclude",
+                    "description": "Pflicht-Elemente",
+                    "required": false,
+                    "defaultValue": "Überschriften, Bulletpoints"
+                }
+            ],
+            "moduleId": "canva-design"
+        }
+    }
+}

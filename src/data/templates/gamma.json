@@ -1,0 +1,90 @@
+{
+    "toolId": "gamma",
+    "general": {
+        "id": "gamma-general",
+        "name": "Gamma Deck Builder",
+        "description": "Präsentationen mit klarer Struktur",
+        "template": "Erstelle ein Deck für: {{targetAudience}}\n\nZiel/Outcome: {{goal}}\nTon: {{tone}}\nUmfang: {{slideCount}} Slides\n\nStruktur:\n{{deckStructure}}\n\nPflicht-Elemente:\n- {{mustInclude}}\n\nNo-Gos: {{noGos}}\n\nSprache: {{language}}",
+        "slots": [
+            {
+                "name": "Zielgruppe",
+                "key": "targetAudience",
+                "description": "Für wen?",
+                "required": true
+            },
+            {
+                "name": "Ziel",
+                "key": "goal",
+                "description": "Was sollen sie tun?",
+                "required": true
+            },
+            {
+                "name": "Ton",
+                "key": "tone",
+                "description": "klar/executive/inspirierend",
+                "required": true,
+                "defaultValue": "klar, professionell"
+            },
+            {
+                "name": "Slide-Anzahl",
+                "key": "slideCount",
+                "description": "Anzahl Folien",
+                "required": true,
+                "defaultValue": "8"
+            },
+            {
+                "name": "Deck-Struktur",
+                "key": "deckStructure",
+                "description": "Struktur-Vorgabe",
+                "required": true,
+                "defaultValue": "1) Hook\n2) Problem\n3) Lösung (3 Punkte)\n4) Belege/Daten\n5) CTA"
+            },
+            {
+                "name": "Muss enthalten",
+                "key": "mustInclude",
+                "description": "Pflicht-Elemente",
+                "required": false,
+                "defaultValue": "1 Tabelle, Key Takeaways"
+            },
+            {
+                "name": "No-Gos",
+                "key": "noGos",
+                "description": "Was vermeiden?",
+                "required": false,
+                "defaultValue": "zu viel Text, generische Bilder"
+            },
+            {
+                "name": "Sprache",
+                "key": "language",
+                "description": "Zielsprache",
+                "required": true,
+                "defaultValue": "Deutsch"
+            }
+        ],
+        "moduleId": "gamma-deck"
+    },
+    "useCases": {
+        "slides-docs": {
+            "id": "gamma-pitch",
+            "name": "Gamma Pitch Deck",
+            "description": "Für Pitch-Präsentationen",
+            "template": "Pitch Deck für: {{projectName}}\n\nZielgruppe: {{targetAudience}}\nZiel: {{goal}}\n\nPitch-Struktur ({{slideCount}} Slides):\n1) Problem (Pain Point)\n2) Lösung (Dein Produkt/Idee)\n3) Markt (Größe, Potenzial)\n4) Geschäftsmodell\n5) Traction/Erfolge\n6) Team\n7) Ask/CTA\n\nDesign:\n- Ton: {{tone}}\n- Stil: {{designStyle}}\n\nPflicht: {{mustInclude}}\nNo-Gos: {{noGos}}",
+            "slots": [
+                {
+                    "name": "Projektname",
+                    "key": "projectName",
+                    "description": "Name des Projekts",
+                    "required": true
+                },
+                {
+                    "name": "Design-Stil",
+                    "key": "designStyle",
+                    "description": "Visueller Stil",
+                    "required": false,
+                    "defaultValue": "modern, clean, professionell"
+                }
+            ],
+            "moduleId": "gamma-deck"
+        }
+    }
+}

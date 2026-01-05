@@ -1,0 +1,141 @@
+{
+    "toolId": "suno-udio",
+    "general": {
+        "id": "suno-general",
+        "name": "Suno/Udio Music",
+        "description": "Musikgenerierung mit Genre und Lyrics",
+        "template": "Style: {{genre}}, {{mood}}, {{era}}, {{bpm}}, {{instruments}}, {{vocalType}}\n\nLyrics Context:\n{{lyricsContext}}\n\n[Intro]\n{{intro}}\n\n[Verse 1]\n{{verse1}}\n\n[Chorus]\n{{chorus}}\n\n[Verse 2]\n{{verse2}}\n\n[Bridge]\n{{bridge}}\n\n[Outro]\n{{outro}}",
+        "slots": [
+            {
+                "name": "Genre",
+                "key": "genre",
+                "description": "Musikgenre (englisch)",
+                "required": true
+            },
+            {
+                "name": "Mood",
+                "key": "mood",
+                "description": "Stimmung",
+                "required": true
+            },
+            {
+                "name": "Era",
+                "key": "era",
+                "description": "Zeitepoche/Stil",
+                "required": false,
+                "defaultValue": "modern"
+            },
+            {
+                "name": "BPM",
+                "key": "bpm",
+                "description": "Tempo",
+                "required": false,
+                "defaultValue": "120 BPM"
+            },
+            {
+                "name": "Instruments",
+                "key": "instruments",
+                "description": "Hauptinstrumente",
+                "required": false
+            },
+            {
+                "name": "Vocal Type",
+                "key": "vocalType",
+                "description": "Gesangsstil",
+                "required": false,
+                "defaultValue": "clear vocals"
+            },
+            {
+                "name": "Lyrics Context",
+                "key": "lyricsContext",
+                "description": "Thema/Story der Lyrics",
+                "required": true
+            },
+            {
+                "name": "Intro",
+                "key": "intro",
+                "description": "Intro-Text",
+                "required": false
+            },
+            {
+                "name": "Verse 1",
+                "key": "verse1",
+                "description": "Strophe 1",
+                "required": true
+            },
+            {
+                "name": "Chorus",
+                "key": "chorus",
+                "description": "Refrain",
+                "required": true
+            },
+            {
+                "name": "Verse 2",
+                "key": "verse2",
+                "description": "Strophe 2",
+                "required": false
+            },
+            {
+                "name": "Bridge",
+                "key": "bridge",
+                "description": "Bridge",
+                "required": false
+            },
+            {
+                "name": "Outro",
+                "key": "outro",
+                "description": "Outro",
+                "required": false
+            }
+        ],
+        "moduleId": "suno-music"
+    },
+    "useCases": {
+        "audio-music": {
+            "id": "suno-instrumental",
+            "name": "Suno Instrumental",
+            "description": "Instrumentale Musik ohne Gesang",
+            "template": "Style: {{genre}}, {{mood}}, {{era}}, {{bpm}}, {{instruments}}, instrumental\n\nStructure:\n- Intro: {{introDesc}}\n- Main Theme: {{mainTheme}}\n- Build-up: {{buildUp}}\n- Climax: {{climax}}\n- Outro: {{outroDesc}}\n\nProduction notes: {{productionNotes}}",
+            "slots": [
+                {
+                    "name": "Intro Description",
+                    "key": "introDesc",
+                    "description": "Beschreibung Intro",
+                    "required": true
+                },
+                {
+                    "name": "Main Theme",
+                    "key": "mainTheme",
+                    "description": "Hauptthema",
+                    "required": true
+                },
+                {
+                    "name": "Build-up",
+                    "key": "buildUp",
+                    "description": "Aufbau",
+                    "required": false
+                },
+                {
+                    "name": "Climax",
+                    "key": "climax",
+                    "description": "Höhepunkt",
+                    "required": true
+                },
+                {
+                    "name": "Outro Description",
+                    "key": "outroDesc",
+                    "description": "Beschreibung Outro",
+                    "required": false
+                },
+                {
+                    "name": "Production Notes",
+                    "key": "productionNotes",
+                    "description": "Produktionshinweise",
+                    "required": false,
+                    "defaultValue": "cinematic, layered, dynamic"
+                }
+            ],
+            "moduleId": "suno-music"
+        }
+    }
+}

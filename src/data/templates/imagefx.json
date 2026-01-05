@@ -1,0 +1,103 @@
+{
+    "toolId": "imagefx",
+    "general": {
+        "id": "imagefx-general",
+        "name": "Google ImageFX",
+        "description": "Bildgenerierung mit Text-Rendering Fokus",
+        "template": "Subject: {{subject}}\n\nScene: {{scene}}\n\nStyle: {{style}}\n\nAction: {{action}}\n\n{{#textElement}}Text in image: \"{{textElement}}\" displayed as {{textStyle}}{{/textElement}}\n\nComposition: {{composition}}\n\nAspect ratio: {{aspectRatio}}\n\nAvoid: {{negatives}}",
+        "slots": [
+            {
+                "name": "Subject",
+                "key": "subject",
+                "description": "Hauptmotiv",
+                "required": true
+            },
+            {
+                "name": "Scene",
+                "key": "scene",
+                "description": "Ort, Zeit, Stimmung",
+                "required": true
+            },
+            {
+                "name": "Style",
+                "key": "style",
+                "description": "fotorealistisch/3D/Illustration",
+                "required": true,
+                "defaultValue": "fotorealistisch"
+            },
+            {
+                "name": "Action",
+                "key": "action",
+                "description": "Was passiert gerade?",
+                "required": false
+            },
+            {
+                "name": "Text im Bild",
+                "key": "textElement",
+                "description": "Text der im Bild erscheinen soll",
+                "required": false
+            },
+            {
+                "name": "Text-Stil",
+                "key": "textStyle",
+                "description": "Wie der Text dargestellt wird",
+                "required": false,
+                "defaultValue": "neon sign"
+            },
+            {
+                "name": "Composition",
+                "key": "composition",
+                "description": "Bildaufbau",
+                "required": false,
+                "defaultValue": "centered, balanced"
+            },
+            {
+                "name": "Aspect Ratio",
+                "key": "aspectRatio",
+                "description": "Seitenverhältnis",
+                "required": false,
+                "defaultValue": "16:9"
+            },
+            {
+                "name": "Negatives",
+                "key": "negatives",
+                "description": "Was vermeiden?",
+                "required": false,
+                "defaultValue": "watermarks, blur, distorted fingers"
+            }
+        ],
+        "moduleId": "imagefx-prompt"
+    },
+    "useCases": {
+        "image": {
+            "id": "imagefx-text-art",
+            "name": "ImageFX Text Art",
+            "description": "Für Bilder mit Text-Elementen",
+            "template": "Create an image of: {{subject}}\n\nSetting: {{scene}}\n\nStyle: {{style}}\n\nFeatured text: \"{{textElement}}\"\n- Text appearance: {{textStyle}}\n- Text placement: {{textPlacement}}\n- Text integration: {{textIntegration}}\n\nOverall composition: {{composition}}\nColor palette: {{colorPalette}}\nAspect ratio: {{aspectRatio}}\n\nMust avoid: {{negatives}}",
+            "slots": [
+                {
+                    "name": "Text Placement",
+                    "key": "textPlacement",
+                    "description": "Wo im Bild?",
+                    "required": false,
+                    "defaultValue": "prominent, center"
+                },
+                {
+                    "name": "Text Integration",
+                    "key": "textIntegration",
+                    "description": "Wie integriert?",
+                    "required": false,
+                    "defaultValue": "naturally integrated into scene"
+                },
+                {
+                    "name": "Color Palette",
+                    "key": "colorPalette",
+                    "description": "Farbschema",
+                    "required": false,
+                    "defaultValue": "vibrant, harmonious"
+                }
+            ],
+            "moduleId": "imagefx-prompt"
+        }
+    }
+}

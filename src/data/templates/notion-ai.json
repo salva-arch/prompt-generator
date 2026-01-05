@@ -1,0 +1,76 @@
+{
+    "toolId": "notion-ai",
+    "general": {
+        "id": "notion-general",
+        "name": "Notion AI Assistant",
+        "description": "In-Notizen KI mit Property-Fokus",
+        "template": "Aufgabe: {{task}}\n\nKontext:\n- Nutze nur Inhalte dieser Seite/Datenbank\n- Ziel: {{goal}}\n\nFormat:\n- {{format}}\n- Klar und strukturiert\n\nRegeln:\n- Wenn Information fehlt: schreibe \"UNBEKANNT\"\n- {{additionalRules}}\n\nSprache: {{language}}",
+        "slots": [
+            {
+                "name": "Aufgabe",
+                "key": "task",
+                "description": "Was soll Notion AI tun?",
+                "required": true
+            },
+            {
+                "name": "Ziel",
+                "key": "goal",
+                "description": "Gewünschtes Ergebnis",
+                "required": true
+            },
+            {
+                "name": "Format",
+                "key": "format",
+                "description": "Output-Format",
+                "required": true,
+                "defaultValue": "Bulletpoints"
+            },
+            {
+                "name": "Zusätzliche Regeln",
+                "key": "additionalRules",
+                "description": "Weitere Vorgaben",
+                "required": false
+            },
+            {
+                "name": "Sprache",
+                "key": "language",
+                "description": "Zielsprache",
+                "required": true,
+                "defaultValue": "Deutsch"
+            }
+        ],
+        "moduleId": "notion-ai-property"
+    },
+    "useCases": {
+        "chat-writing": {
+            "id": "notion-summary",
+            "name": "Notion AI Zusammenfassung",
+            "description": "Notizen zusammenfassen und strukturieren",
+            "template": "Aufgabe: Fasse die Inhalte dieser Seite zusammen.\n\nFormat:\n{{summaryFormat}}\n\nRegeln:\n- Nur Fakten aus dem Dokument\n- Keine externen Informationen\n- Bei Unklarheit: als Frage formulieren\n- Länge: {{length}}\n\nZusätzlich:\n- {{additionalOutput}}\n\nSprache: {{language}}",
+            "slots": [
+                {
+                    "name": "Summary Format",
+                    "key": "summaryFormat",
+                    "description": "Format der Zusammenfassung",
+                    "required": true,
+                    "defaultValue": "Tabelle: Thema | Definition | Beispiel"
+                },
+                {
+                    "name": "Länge",
+                    "key": "length",
+                    "description": "Gewünschte Länge",
+                    "required": false,
+                    "defaultValue": "kompakt"
+                },
+                {
+                    "name": "Zusätzlicher Output",
+                    "key": "additionalOutput",
+                    "description": "Was noch?",
+                    "required": false,
+                    "defaultValue": "Liste offene Fragen auf"
+                }
+            ],
+            "moduleId": "notion-ai-property"
+        }
+    }
+}

@@ -1,0 +1,135 @@
+{
+    "toolId": "gemini",
+    "general": {
+        "id": "gemini-general",
+        "name": "Gemini Universal",
+        "description": "Multimodaler Assistent mit Workspace-Integration",
+        "template": "Context:\n{{context}}\n\nTask: {{task}}\n\nOutput:\n- Format: {{format}}\n- Length: {{length}}\n- Language: {{language}}\n\nQuality bar:\n- Must include: {{mustInclude}}\n- Must avoid: {{noGos}}\n\nVerify:\n- {{verification}}\n- Use Grounding for factual claims",
+        "slots": [
+            {
+                "name": "Context",
+                "key": "context",
+                "description": "Daten/Notizen/Constraints",
+                "required": true
+            },
+            {
+                "name": "Task",
+                "key": "task",
+                "description": "Konkreter Auftrag",
+                "required": true
+            },
+            {
+                "name": "Format",
+                "key": "format",
+                "description": "Output-Format",
+                "required": true,
+                "defaultValue": "strukturierter Text"
+            },
+            {
+                "name": "Length",
+                "key": "length",
+                "description": "Länge",
+                "required": false,
+                "defaultValue": "angemessen"
+            },
+            {
+                "name": "Language",
+                "key": "language",
+                "description": "Sprache",
+                "required": true,
+                "defaultValue": "Deutsch"
+            },
+            {
+                "name": "Must Include",
+                "key": "mustInclude",
+                "description": "Pflicht-Elemente",
+                "required": false
+            },
+            {
+                "name": "No-Gos",
+                "key": "noGos",
+                "description": "Was vermeiden?",
+                "required": false,
+                "defaultValue": "Halluzinationen, ungeprüfte Fakten"
+            },
+            {
+                "name": "Verification",
+                "key": "verification",
+                "description": "Selbst-Check",
+                "required": false,
+                "defaultValue": "Check against source material"
+            }
+        ],
+        "moduleId": "gemini-general"
+    },
+    "useCases": {
+        "research": {
+            "id": "gemini-multimodal",
+            "name": "Gemini Multimodal Analysis",
+            "description": "Für Analyse von Bildern, PDFs, Videos",
+            "template": "Analyze the attached {{mediaType}}:\n\nContext: {{context}}\n\nAnalysis goals:\n{{analysisGoals}}\n\nOutput format:\n{{format}}\n\nSpecific questions:\n{{specificQuestions}}\n\nQuality requirements:\n- Ground all claims in the source material\n- Note any uncertainties\n- Language: {{language}}\n\nAfter analysis:\n- Summarize key findings\n- List actionable insights\n- Identify gaps or questions",
+            "slots": [
+                {
+                    "name": "Media Type",
+                    "key": "mediaType",
+                    "description": "Bild/PDF/Video/Dokument",
+                    "required": true
+                },
+                {
+                    "name": "Analysis Goals",
+                    "key": "analysisGoals",
+                    "description": "Was analysieren?",
+                    "required": true
+                },
+                {
+                    "name": "Specific Questions",
+                    "key": "specificQuestions",
+                    "description": "Konkrete Fragen",
+                    "required": true
+                }
+            ],
+            "moduleId": "gemini-general"
+        },
+        "chat-writing": {
+            "id": "gemini-workspace",
+            "name": "Gemini Workspace Integration",
+            "description": "Für Google Workspace Aufgaben",
+            "template": "Workspace Task: {{task}}\n\nContext:\n- Document/File: {{documentReference}}\n- Purpose: {{purpose}}\n\nInstructions:\n{{instructions}}\n\nOutput:\n- Format: {{format}}\n- Integrate with: {{integrationTarget}}\n\nQuality:\n- {{qualityRules}}\n- Language: {{language}}",
+            "slots": [
+                {
+                    "name": "Document Reference",
+                    "key": "documentReference",
+                    "description": "Welches Dokument?",
+                    "required": false
+                },
+                {
+                    "name": "Purpose",
+                    "key": "purpose",
+                    "description": "Zweck der Aufgabe",
+                    "required": true
+                },
+                {
+                    "name": "Instructions",
+                    "key": "instructions",
+                    "description": "Schritte",
+                    "required": true
+                },
+                {
+                    "name": "Integration Target",
+                    "key": "integrationTarget",
+                    "description": "Wo einfügen?",
+                    "required": false,
+                    "defaultValue": "as new document"
+                },
+                {
+                    "name": "Quality Rules",
+                    "key": "qualityRules",
+                    "description": "Qualitätsanforderungen",
+                    "required": false,
+                    "defaultValue": "Consistent formatting, clear structure"
+                }
+            ],
+            "moduleId": "gemini-general"
+        }
+    }
+}

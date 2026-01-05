@@ -1,0 +1,82 @@
+{
+    "toolId": "elicit",
+    "general": {
+        "id": "elicit-general",
+        "name": "Elicit Research Query",
+        "description": "Wissenschaftliche Recherche mit Filtern",
+        "template": "Research question: {{researchQuestion}}\n\nFilter:\n- Year: {{yearFilter}}\n- Population: {{population}}\n- Study type: {{studyType}}\n- Exclude: {{exclusions}}\n\nOutput:\n1) Top {{resultCount}} Papers\n2) Table: Paper | Design | Sample | Key Finding | Limitations\n3) Research gaps identified",
+        "slots": [
+            {
+                "name": "Forschungsfrage",
+                "key": "researchQuestion",
+                "description": "Klare Frage (am besten Englisch)",
+                "required": true
+            },
+            {
+                "name": "Jahr-Filter",
+                "key": "yearFilter",
+                "description": "z.B. >= 2020",
+                "required": false,
+                "defaultValue": ">= 2020"
+            },
+            {
+                "name": "Population",
+                "key": "population",
+                "description": "Zielgruppe der Studien",
+                "required": false
+            },
+            {
+                "name": "Studientyp",
+                "key": "studyType",
+                "description": "RCT, Meta-Analyse, etc.",
+                "required": false,
+                "defaultValue": "empirische Studien"
+            },
+            {
+                "name": "Ausschlüsse",
+                "key": "exclusions",
+                "description": "Was ausschließen?",
+                "required": false,
+                "defaultValue": "opinion pieces, editorials"
+            },
+            {
+                "name": "Anzahl Ergebnisse",
+                "key": "resultCount",
+                "description": "Wie viele Papers?",
+                "required": false,
+                "defaultValue": "10"
+            }
+        ],
+        "moduleId": "elicit-research"
+    },
+    "useCases": {
+        "research": {
+            "id": "elicit-systematic",
+            "name": "Elicit Systematic Review",
+            "description": "Für systematische Literaturrecherche",
+            "template": "Systematic literature review on: {{researchQuestion}}\n\nInclusion criteria:\n- Year: {{yearFilter}}\n- Population: {{population}}\n- Intervention: {{intervention}}\n- Outcome: {{outcome}}\n- Study design: {{studyType}}\n\nExclusion criteria:\n- {{exclusions}}\n\nData to extract:\n{{dataPoints}}\n\nOutput format:\n1) PRISMA-style summary\n2) Evidence table with all data points\n3) Quality assessment notes\n4) Synthesis of findings",
+            "slots": [
+                {
+                    "name": "Intervention",
+                    "key": "intervention",
+                    "description": "Was wird untersucht?",
+                    "required": true
+                },
+                {
+                    "name": "Outcome",
+                    "key": "outcome",
+                    "description": "Welche Ergebnisse?",
+                    "required": true
+                },
+                {
+                    "name": "Data Points",
+                    "key": "dataPoints",
+                    "description": "Welche Daten extrahieren?",
+                    "required": true,
+                    "defaultValue": "Authors, Year, Sample size, Methodology, Key findings, Effect size, Limitations"
+                }
+            ],
+            "moduleId": "elicit-research"
+        }
+    }
+}
