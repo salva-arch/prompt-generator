@@ -1,135 +1,83 @@
-# Prompt Generator MVP
+# KI-Kompass 🧭
 
-Ein Wizard-basierter Prompt-Generator für 14 KI-Tools mit tool-spezifischen Templates, Lint-Report und Export-Funktionen.
+> Your interactive guide through the AI landscape – find the right tools and concepts for your needs.
 
-## 🚀 Quick Start
+![HTML](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
+![Status](https://img.shields.io/badge/status-active-green)
+![License](https://img.shields.io/badge/license-MIT-blue)
 
-```bash
-# In das Projektverzeichnis wechseln
-cd prompt-generator
+## 🎯 Problem
 
-# Dependencies installieren
-npm install
+The AI tool landscape is overwhelming. New tools launch daily, categories blur together, and it's hard to know where to start – whether you're a complete beginner or a professional looking for specific capabilities.
 
-# Entwicklungsserver starten
-npm run dev
-```
+## 💡 Solution
 
-Öffne [http://localhost:3000](http://localhost:3000) im Browser.
+An interactive web application that:
+- **Guides users** through AI concepts step by step
+- **Categorizes tools** by use case and skill level
+- **Recommends** the right starting point based on your goals
+- **Explains** complex concepts in simple terms
 
 ## ✨ Features
 
-- **14 unterstützte Tools**: ChatGPT, Claude, Perplexity, Midjourney, Copilot, DeepL, Canva, Gamma, Elicit, Suno/Udio, Notion AI, Runway, ImageFX, Gemini
-- **7-Schritt Wizard**: Tool → Use-Case → Ziel → Kontext → Constraints → Qualität → Referenzen
-- **Tool-spezifische Optimierungen**:
-  - Claude: XML-Tags für Kontext/Instruktionen
-  - Perplexity: Keine Few-Shot-Beispiele
-  - Midjourney: Parameter am Ende (--ar, --s, --no)
-  - Copilot: Comment-Driven Development
-- **4 Prompt-Formeln**: Universal, Research, Media, Coding
-- **Qualitäts-Lint**: Automatische Prüfung mit Verbesserungsvorschlägen
-- **Export**: Markdown-Export und Copy-to-Clipboard
+- 🎯 Interactive quiz to find your starting point
+- 📚 Curated tool database with honest reviews
+- 🗺️ Visual concept maps
+- 🎓 Learning paths from beginner to advanced
+- 🔍 Filter by: use case, price, skill level
+- 🌐 Available in German and English
 
-## 📁 Projektstruktur
-
-```
-src/
-├── app/                    # Next.js App Router
-│   ├── page.tsx           # Landing Page
-│   ├── wizard/page.tsx    # Wizard UI
-│   └── result/page.tsx    # Ergebnis-Seite
-├── components/wizard/      # Wizard-Schritt-Komponenten
-├── data/
-│   ├── tools.json         # Tool-Definitionen
-│   ├── use-cases.json     # Use-Case-Kategorien
-│   └── templates/         # 14 Tool-Templates
-├── lib/
-│   ├── engine/
-│   │   ├── renderer.ts    # Prompt-Rendering
-│   │   └── lint.ts        # Qualitäts-Linting
-│   ├── store/
-│   │   └── wizard-store.ts # Zustand State
-│   ├── types/
-│   │   └── index.ts       # TypeScript-Typen
-│   └── utils/
-│       └── export.ts      # Export-Funktionen
-```
-
-## 🔧 Templates hinzufügen/bearbeiten
-
-Templates befinden sich in `src/data/templates/`. Jedes Tool hat eine eigene JSON-Datei mit:
-
-```json
-{
-  "toolId": "tool-name",
-  "general": {
-    "id": "tool-general",
-    "name": "Tool General Template",
-    "template": "Prompt mit {{variablen}}...",
-    "slots": [...],
-    "moduleId": "optional-module"
-  },
-  "useCases": {
-    "coding": { ... },
-    "research": { ... }
-  }
-}
-```
-
-### Template-Variablen
-
-- `{{variable}}` - Einfache Substitution
-- `{{#conditional}}...{{/conditional}}` - Bedingte Blöcke
-
-### Verfügbare Variablen
-
-| Variable | Beschreibung |
-|----------|-------------|
-| `{{goal}}` | Ziel/Outcome |
-| `{{domain}}` | Fachgebiet |
-| `{{targetAudience}}` | Zielgruppe |
-| `{{context}}` | Kontextbeschreibung |
-| `{{inputMaterial}}` | Input-Material |
-| `{{tone}}` | Schreibstil |
-| `{{format}}` | Output-Format |
-| `{{length}}` | Gewünschte Länge |
-| `{{noGos}}` | Was vermeiden |
-| `{{language}}` | Sprache |
-
-## 🧪 Tests
-
+## 🚀 Quick Start
 ```bash
-# Unit Tests ausführen
-npm test
+# Clone the repository
+git clone https://github.com/salva-arch/ki-kompass.git
+cd ki-kompass
 
-# E2E Tests (Playwright)
-npm run test:e2e
+# Open in browser (no build required)
+open index.html
+
+# Or serve locally
+npx serve .
 ```
 
-## 📋 Lint-Regeln
+## 📸 Screenshots
 
-Das System prüft automatisch auf:
+[TODO: Add screenshots of the compass interface]
 
-- ✅ Ziel definiert
-- ✅ Kontext vorhanden
-- ✅ Output-Format spezifiziert
-- ✅ Sprache definiert
-- ✅ Constraints vorhanden
-- ✅ Tool-spezifische Regeln (z.B. "Keine Few-Shots für Perplexity")
+## 🏗 Structure
+```
+├── index.html          # Main entry point
+├── css/
+│   └── styles.css      # Styling
+├── js/
+│   ├── app.js          # Main application logic
+│   ├── quiz.js         # Recommendation quiz
+│   └── data.js         # Tool & concept database
+└── assets/
+    └── icons/          # Tool logos & icons
+```
 
-## 🔒 Datenschutz
+## 🗺 Roadmap
 
-- Alle Daten bleiben lokal im Browser (localStorage)
-- Keine externen API-Calls
-- Keine Tracking-Cookies
+- [ ] Tool comparison matrix
+- [ ] Personalized learning path generator
+- [ ] Community ratings & reviews
+- [ ] API for embedding in other sites
+- [ ] Newsletter with weekly AI tool updates
+- [ ] Integration tutorials for popular tools
 
-## 📚 Tech Stack
+## 🎯 Who Is This For?
 
-- Next.js 15 (App Router)
-- TypeScript
-- Tailwind CSS
-- Zustand (State Management)
+- **Beginners** wanting to understand AI without the jargon
+- **Professionals** looking for the right tool for specific tasks
+- **Managers** evaluating AI solutions for their teams
+- **Educators** teaching AI literacy
 
-## 📝 Lizenz
+## 📄 License
 
-MIT
+MIT – see [LICENSE](LICENSE)
+
+---
+
+Built by [Salvatore Docimo](https://github.com/salva-arch) | [LinkedIn](https://www.linkedin.com/in/salvatore-docimo-15bb47200/)
