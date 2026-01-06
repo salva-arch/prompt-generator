@@ -1,78 +1,90 @@
-# KI-Kompass 🧭
+# Prompt Generator ⚡
 
-> Your interactive guide through the AI landscape – find the right tools and concepts for your needs.
+> Generate structured, consistent prompts for AI interactions – stop reinventing the wheel every conversation.
 
-![HTML](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript)
 ![Status](https://img.shields.io/badge/status-active-green)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
 ## 🎯 Problem
 
-The AI tool landscape is overwhelming. New tools launch daily, categories blur together, and it's hard to know where to start – whether you're a complete beginner or a professional looking for specific capabilities.
+Every AI conversation starts from scratch. You waste time crafting the same context, role definitions, and output formats. Results are inconsistent because prompts vary wildly between sessions.
 
 ## 💡 Solution
 
-An interactive web application that:
-- **Guides users** through AI concepts step by step
-- **Categorizes tools** by use case and skill level
-- **Recommends** the right starting point based on your goals
-- **Explains** complex concepts in simple terms
+A TypeScript-based tool that:
+- Provides **reusable prompt templates** for common use cases
+- Ensures **consistent structure** across all AI interactions
+- Supports **variable injection** for dynamic content
+- Exports prompts in **multiple formats** (plain text, JSON, YAML)
 
 ## ✨ Features
 
-- 🎯 Interactive quiz to find your starting point
-- 📚 Curated tool database with honest reviews
-- 🗺️ Visual concept maps
-- 🎓 Learning paths from beginner to advanced
-- 🔍 Filter by: use case, price, skill level
-- 🌐 Available in German and English
+- 📝 Template library for common scenarios
+- 🔧 Variable substitution system
+- 📋 Clipboard integration
+- 💾 Export to JSON/YAML/Markdown
+- 🎨 Customizable output formatting
+- 🔗 Chain multiple templates together
 
 ## 🚀 Quick Start
 ```bash
 # Clone the repository
-git clone https://github.com/salva-arch/ki-kompass.git
-cd ki-kompass
+git clone https://github.com/salva-arch/prompt-generator.git
+cd prompt-generator
 
-# Open in browser (no build required)
-open index.html
+# Install dependencies
+npm install
 
-# Or serve locally
-npx serve .
+# Build the project
+npm run build
+
+# Run the generator
+npm start
 ```
 
-## 📸 Screenshots
+## 📖 Usage
+```typescript
+import { PromptGenerator } from './generator';
 
-[TODO: Add screenshots of the compass interface]
+const generator = new PromptGenerator();
 
-## 🏗 Structure
+// Load a template
+const prompt = generator.fromTemplate('code-review', {
+  language: 'TypeScript',
+  context: 'REST API endpoint',
+  focus: 'security and performance'
+});
+
+console.log(prompt.render());
 ```
-├── index.html          # Main entry point
-├── css/
-│   └── styles.css      # Styling
-├── js/
-│   ├── app.js          # Main application logic
-│   ├── quiz.js         # Recommendation quiz
-│   └── data.js         # Tool & concept database
-└── assets/
-    └── icons/          # Tool logos & icons
+
+## 📁 Template Structure
+```
+templates/
+├── analysis/
+│   ├── code-review.yaml
+│   └── data-analysis.yaml
+├── creative/
+│   ├── writing-assistant.yaml
+│   └── brainstorming.yaml
+└── technical/
+    ├── debugging.yaml
+    └── architecture.yaml
 ```
 
 ## 🗺 Roadmap
 
-- [ ] Tool comparison matrix
-- [ ] Personalized learning path generator
-- [ ] Community ratings & reviews
-- [ ] API for embedding in other sites
-- [ ] Newsletter with weekly AI tool updates
-- [ ] Integration tutorials for popular tools
+- [ ] CLI interface for quick generation
+- [ ] Web UI for non-technical users
+- [ ] Template marketplace/sharing
+- [ ] Integration with VS Code
+- [ ] Support for prompt chaining
+- [ ] A/B testing for prompt effectiveness
 
-## 🎯 Who Is This For?
+## 🤝 Contributing
 
-- **Beginners** wanting to understand AI without the jargon
-- **Professionals** looking for the right tool for specific tasks
-- **Managers** evaluating AI solutions for their teams
-- **Educators** teaching AI literacy
+Contributions welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) first.
 
 ## 📄 License
 
